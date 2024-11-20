@@ -11,6 +11,13 @@
 ![rmbg_video](https://github.com/user-attachments/assets/991951eb-7a8e-47f3-8751-989daed37d1e)
 
 
+https://github.com/user-attachments/assets/4996ce13-24f9-484d-8ebd-7ba8e29f879d
+
+
+https://github.com/user-attachments/assets/1d12f8eb-9824-41ad-94f1-b4e0cfac00a3
+
+[Video Credit](https://pixabay.com/videos/woman-hair-drying-bathroom-bathe-37325/)
+
 
 ##### RMBG v2.0 Google Colab All code in single notebook
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuralFalconYT/BRIA-RMBG-2.0-Demo/blob/main/rmbg_2.0_embedded.ipynb) <br>

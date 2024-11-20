@@ -7,10 +7,11 @@
 - **Remove background from a single image or multiple images**
 - **Remove background from video (create a green screen effect)**
   <br>
+### App Screenshot: 
 ![image](https://github.com/user-attachments/assets/53654f9e-7387-4e5a-a273-c09fddf4d687)
 ![rmbg_video](https://github.com/user-attachments/assets/991951eb-7a8e-47f3-8751-989daed37d1e)
 
-
+### Sample Output:
 https://github.com/user-attachments/assets/4996ce13-24f9-484d-8ebd-7ba8e29f879d
 
 

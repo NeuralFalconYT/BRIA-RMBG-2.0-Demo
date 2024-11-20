@@ -99,6 +99,7 @@ deactivate
 
 ## Credit:
 [RMBG-2.0](https://huggingface.co/briaai/RMBG-2.0)
+<br>
 **Note**:<br>
   RMBG v2.0 is available as a source-available model for non-commercial use.<br>
   Developed by: [BRIA AI](https://bria.ai/) <br> HuggingFace model page: [RMBG-2.0 Model](https://huggingface.co/briaai/RMBG-2.0) <br>License: [bria-rmbg-2.0](https://bria.ai/bria-huggingface-model-license-agreement/) 

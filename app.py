@@ -1,4 +1,4 @@
-#set base path
+#set up base path
 base_path="."
 #Downalod & load RMBG-2.0 Model
 import torch
@@ -10,7 +10,7 @@ torch.set_float32_matmul_precision(['high', 'highest'][0])
 model.to('cuda')
 model.eval()
 
-#@Utils
+#Utils
 import os
 import shutil
 import cv2
@@ -22,9 +22,12 @@ from zipfile import ZipFile
 from PIL import Image
 
 def create_directory(directory_path):
-    if os.path.exists(directory_path):
-        shutil.rmtree(directory_path)
-    os.makedirs(directory_path)
+  if os.path.exists(directory_path):
+    try:
+      shutil.rmtree(directory_path)
+    except Exception as e:
+      print(e)
+  os.makedirs(directory_path)
 
 def extract_frames(video_path):
   directory_path = f"{base_path}/images"
@@ -230,7 +233,7 @@ def remove_background(upload_image_path):
   mask = pred_pil.resize(image.size)
   image.putalpha(mask)
   image.save(save_image_path)
-  return input_image_path,save_image_path
+  return upload_image_path,save_image_path
 
 
 
@@ -246,7 +249,7 @@ def zip_folder(folder_path, zip_path):
 
 def manage_files(multiple_images):
   if len(multiple_images)==1:
-    before_image_path,save_path=remove_background(multiple_images[-1])
+    _,save_path=remove_background(multiple_images[-1])
     pil_image=Image.open(save_path)
     return save_path,pil_image
   else:
@@ -254,9 +257,12 @@ def manage_files(multiple_images):
     temp_folder=f"{base_path}/temp/RMBG_{random_uuid}"
     os.makedirs(temp_folder)
     for image in multiple_images:
-      _,save_path=remove_background(image)
-      file_name=os.path.basename(save_path)
-      shutil.copy(save_path,f"{temp_folder}/{file_name}")
+      try:
+        upload_image_path,save_path=remove_background(image)
+        file_name = os.path.splitext(os.path.basename(upload_image_path))[0]
+        shutil.copy(save_path,f"{temp_folder}/{file_name}.png")
+      except:
+        pass
     zip_folder(temp_folder, f"{temp_folder}.zip")
     full_path = os.path.abspath(f"{temp_folder}.zip")
     return f"{temp_folder}.zip",None
@@ -270,9 +276,15 @@ def green_screen_pipeline(upload_video_path):
   process_video(video_path)
   green_screen_video_path=make_video(video_path)
   return green_screen_video_path
+def clear_cache_files():
+  folder_list=["images","temp","upload","video_chunks","result"]
+  for i in folder_list:
+    try:
+      shutil.rmtree(f"{base_path}/{i}")
+    except:
+      pass
 
-
-#Run Gradio Interface
+#@Gradio Interface
 import gradio as gr
 import click
 @click.command()
@@ -294,10 +306,14 @@ def main(debug, share):
   video_demo_outputs=[gr.File(label="Download Video", show_label=True)]
   video_demo = gr.Interface(fn=green_screen_pipeline, inputs=video_demo_inputs,outputs=video_demo_outputs , title="Remove Video Background (Make Green Screen Video)",description=description)
   demo = gr.TabbedInterface([image_demo,video_demo], ["Remove Image Background", "Remove Video Background"],title="Remove Background on Image & Video Using RMBG-2.0")
-  demo.queue().launch(allowed_paths=[f"{base_path}/result",f"{base_path}/upload"],debug=debug,share=share)
+  demo.queue().launch(allowed_paths=[f"{base_path}/result",f"{base_path}/upload",f"{base_path}/temp"],debug=debug,share=share)
 
 
-upload_folder=f"{base_path}/upload"
-os.makedirs(upload_folder, exist_ok=True)  
 if __name__ == "__main__":
+    # clear_cache_files()
+    upload_folder=f"{base_path}/upload"
+    os.makedirs(upload_folder, exist_ok=True)
     main()
+
+
+

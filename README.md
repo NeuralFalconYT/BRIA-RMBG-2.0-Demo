@@ -1,6 +1,17 @@
 # Remove Background on Image & Video Using RMBG-2.0
 ##### RMBG v2.0 Google Colab
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuralFalconYT/BRIA-RMBG-2.0-Demo/blob/main/rmbg_2.0.ipynb) <br>
+
+## Support
+
+- **Remove background from a single image or multiple images**
+- **Remove background from video (create a green screen effect)**
+  <br>
+![image](https://github.com/user-attachments/assets/53654f9e-7387-4e5a-a273-c09fddf4d687)
+![rmbg_video](https://github.com/user-attachments/assets/991951eb-7a8e-47f3-8751-989daed37d1e)
+
+
+
 ##### RMBG v2.0 Google Colab All code in single notebook
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuralFalconYT/BRIA-RMBG-2.0-Demo/blob/main/rmbg_2.0_embedded.ipynb) <br>
 

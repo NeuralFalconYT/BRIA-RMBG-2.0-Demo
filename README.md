@@ -47,11 +47,11 @@ conda activate RMBG
 ```
 ### Step 2: Git Clone BRIA-RMBG-2.0
 ```
-git clone https://github.com/NeuralFalconYT/BRIA-RMBG-2.0-Demo.git
+git clone https://github.com/NeuralFalconYT/BRIA-RMBG-2.0-WebUI.git
 ```
 ### Step 3: Move to BRIA-RMBG-2.0-Demo
 ```
-cd BRIA-RMBG-2.0-Demo
+cd BRIA-RMBG-2.0-WebUI
 ```
 ### Step 4: Install dependencies
 ```

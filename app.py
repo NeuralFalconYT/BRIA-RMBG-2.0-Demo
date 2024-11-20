@@ -151,7 +151,6 @@ def process_video(video_path):
       shutil.copy(temp_video_path,temp_drive_video_path)
 
 
-
 def make_video(video_path):
   file_name=os.path.basename(video_path).split(".mp4")[0]
   video_folder = f'{base_path}/video_chunks'
@@ -163,13 +162,15 @@ def make_video(video_path):
       file.write(f"file '{os.path.join(video_folder, video_file)}'\n")
   output_folder=f"{base_path}/result"
   os.makedirs(output_folder, exist_ok=True)
-  join_command=f"ffmpeg -f concat -safe 0 -i {base_path}/join.txt -c copy {output_folder}/{file_name}_join.mp4 -y"
+  # join_command=f"ffmpeg -f concat -safe 0 -i {base_path}/join.txt -c copy {output_folder}/{file_name}_join.mp4 -y"
+  join_command = f"ffmpeg -f concat -safe 0 -i {base_path}/join.txt -c:v h264_nvenc -c:a copy {output_folder}/{file_name}_join.mp4 -y"
   var1=os.system(join_command)
   if var1==0:
     extract_audio_command=f"ffmpeg -i {video_path} {output_folder}/{file_name}.wav -y"
     var2=os.system(extract_audio_command)
     if var2==0:
-      add_audio_command=f"ffmpeg -i {output_folder}/{file_name}_join.mp4 -i {output_folder}/{file_name}.wav -c:v copy -map 0:v -map 1:a -y {output_folder}/{file_name}_green_screen.mp4"
+      # add_audio_command=f"ffmpeg -i {output_folder}/{file_name}_join.mp4 -i {output_folder}/{file_name}.wav -c:v copy -map 0:v -map 1:a -y {output_folder}/{file_name}_green_screen.mp4"
+      add_audio_command = f"ffmpeg -i {output_folder}/{file_name}_join.mp4 -i {output_folder}/{file_name}.wav -c:v h264_nvenc -c:a aac -b:a 192k -map 0:v -map 1:a -y {output_folder}/{file_name}_green_screen.mp4"
       var3=os.system(add_audio_command)
       if var3==0:
         final_result=f"{output_folder}/{file_name}_green_screen.mp4"
@@ -185,8 +186,6 @@ def make_video(video_path):
   else:
     print("Video Marge Failed")
     print(join_command)
-
-
 
 def clean_file_name(file_path):
     # Get the base file name and extension

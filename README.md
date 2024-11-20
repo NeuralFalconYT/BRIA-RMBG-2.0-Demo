@@ -1,6 +1,6 @@
 # Remove Background on Image & Video Using RMBG-2.0
 ##### RMBG v2.0 Google Colab
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuralFalconYT/BRIA-RMBG-2.0-Demo/blob/main/rmbg_2.0.ipynb) <br>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuralFalconYT/BRIA-RMBG-2.0-WebUI/blob/main/rmbg_2.0.ipynb) <br>
 
 ## Support
 
@@ -21,7 +21,7 @@ https://github.com/user-attachments/assets/1d12f8eb-9824-41ad-94f1-b4e0cfac00a3
 
 
 ##### RMBG v2.0 Google Colab All code in single notebook
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuralFalconYT/BRIA-RMBG-2.0-Demo/blob/main/rmbg_2.0_embedded.ipynb) <br>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NeuralFalconYT/BRIA-RMBG-2.0-WebUI/blob/main/rmbg_2.0_embedded.ipynb) <br>
 
 ## Local Set Up
 ### [Install ffmpeg](https://www.youtube.com/watch?v=JR36oH35Fgg)

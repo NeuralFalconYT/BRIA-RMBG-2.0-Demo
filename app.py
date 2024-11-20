@@ -33,6 +33,7 @@ def extract_frames(video_path):
   directory_path = f"{base_path}/images"
   create_directory(directory_path)
   command=f"ffmpeg -i {video_path} {base_path}/images/%07d.png"
+  # command = f"ffmpeg -hwaccel cuda -i {video_path} {base_path}/images/%07d.png"
   var=os.system(command)
 
   if var==0:
